@@ -1,0 +1,55 @@
+.mod-receiver-input{height:30px;padding:0 0 0 8px;line-height:30px;position:relative;background:transparent}
+#modReceiverInput{height:16px;line-height:16px;padding:7px 0 7px 8px}
+.mod-receiver-input.active{border-color:#aaa}
+.mod-receiver-input.input-box.active{box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none}
+.mod-receiver-input.user-container{cursor:text;height:auto;background:transparent}
+.mod-receiver-input .user-input-box{float:left}
+.mod-receiver-input .user-input-input{border:0;float:left;background:transparent;padding:7px 0;height:16px;line-height:16px;margin:7px 0\9;padding:0\9;*margin:0;*padding:7px 0}
+.mod-receiver-input .user-receiver-info{float:left;height:20px;line-height:20px;color:#3e79a2;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;background-color:#ddecf7;margin:5px 5px 0 0;padding-left:10px;cursor:default;white-space:nowrap}
+.mod-receiver-input .user-receiver-info-close{float:left;height:7px;width:8px;margin-top:7px;margin-left:-16px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAHCAMAAAACh/xsAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRFeKnK////Jm/j9AAAAAJ0Uk5T/wDltzBKAAAAI0lEQVR42mJgYGAEAgYgBWKBKDAPRILFGRmRRWBqYLoAAgwAA/AAHw+k2VYAAAAASUVORK5CYII=) no-repeat 0 0}
+.mod-receiver-input .user-receiver-info-close:hover{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAHCAMAAAACh/xsAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRFPXab////Ae74ZAAAAAJ0Uk5T/wDltzBKAAAAI0lEQVR42mJgYGAEAgYgBWKBKDAPRILFGRmRRWBqYLoAAgwAA/AAHw+k2VYAAAAASUVORK5CYII=) no-repeat 0 0}
+.mod-receiver-input .user-receiver-info-name{float:left;padding-right:22px}
+.mod-receiver-input.input-box-hover{border-color:#bababa #cdcdcd #cdcdcd #bababa}
+.tangram-suggestion-main{z-index:10}
+.tangram-suggestion-main .sugg-con{padding:0 10px;border-bottom:1px dotted #e2e2e2;height:34px}
+.tangram-suggestion-main .sugg-con-last{border-bottom:1px solid #fff}
+.tangram-suggestion-main .sugg-con .sugg-portrait{float:left;padding-right:10px;padding-top:5px}
+.tangram-suggestion-main .sugg-con .sugg-username{float:left;padding-top:9px}
+.tangram-suggestion-current{cursor:default;color:#333}
+.tangram-suggestion-current .sugg-con{position:relative;border-bottom:1px solid #eee;border-top:1px solid #eee;margin-top:-1px;background:#eee}
+.tangram-suggestion-current .sugg-con-last{border-bottom:1px solid #eee}
+.tangram-suggestion-current .sugg-con-first{margin-top:0;border-top:none}
+.tangram-suggestion table{width:161px;border:solid 1px #c7c7c7;color:#666;background:#fff}
+.mod-publish .row.con-receiver .con-input .input-label{top:2px;_top:4px;left:88px;width:auto}
+.con-receiver .con-input .input-label.focus{color:#ddd}
+.mod-publish{float:left;height:581px;border-right:1px solid #EAEAEA}
+.mod-publish .inner{margin-top:30px}
+.mod-publish .row{margin-bottom:16px;position:relative}
+.mod-publish .row .labelword{text-align:right;padding-right:10px;font-size:14px;float:left;width:65px}
+.mod-publish .con-receiver .labelword,.mod-publish .con-verifycode .labelword{padding-top:7px;_padding-top:9px}
+.mod-publish .row .input-receiver{width:572px}
+.mod-publish .row .input-content{width:586px;height:168px}
+.mod-publish .row .input-content-error{border-color:#ec5252;background:#ffd8d8}
+.mod-publish .con-content{margin-bottom:0}
+.mod-publish .row .wordcount{text-align:right;padding-right:22px;padding-top:4px;color:#999}
+.mod-publish .row .wordcount .count-red{color:#ec5252}
+.mod-publish .row .input-verifycode{width:108px}
+.mod-publish .row .con-input{float:left;zoom:1}
+
+/*.mod-publish .row .con-input{height:18px;}*/
+
+#msgTextareaCon{height:214px;border:#666 1px}
+
+.mod-publish .con-verifycode .verifycode{float:left;padding-left:10px}
+.mod-publish .con-verifycode .verifycode img{float:left;height:30px;width:144px;_margin-top:2px;border:1px solid #ddd}
+.mod-publish .con-verifycode .verifycode a{float:left;padding-top:9px;_padding-top:14px;padding-left:10px}
+.mod-publish .con-submit{margin-left:75px}
+.mod-publish .con-submit .loading{margin-left:30px;display:none;height:30px;width:30px;background:url(../images/loadingsmall.gif ) no-repeat 0 4px}
+.mod-publish .editor-submit-btn{width:90px;height:32px;line-height:32px;font-size:14px;font-weight:300;color:white;font-weight:bold;text-align:center;border:0;cursor:pointer;background:url(../images/icon_buttons.gif ) no-repeat 0 0}
+.mod-publish .editor-submit-btn.hover{background:url(../images/icon_buttons.gif ) no-repeat 0 -33px;text-shadow:rgba(0,0,0,0.2) 0 1px;-webkit-box-shadow:0 1px 1px #d9d9d9;-moz-box-shadow:0 1px 1px #d9d9d9;-khtml-box-shadow:0 1px 1px #d9d9d9;box-shadow:0 1px 1px #d9d9d9}
+.mod-publish .editor-submit-btn.disable{background:url(../images/icon_buttons.gif ) no-repeat 0 -66px;color:#9dc3e9;cursor:default}
+.mod-publish .editor-submit-btn.sending{background:url(../images/icon_buttons.gif ) no-repeat 0 -99px;color:#c8dae7}
+.mod-friends{float:left;width:227px;height:581px;background:#FBFBFB;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px}
+.mod-publish .qelm-msgeditor{width:580px}
+.mod-publish .qelm-msgeditor .msgtextarea{width:572px;height:168px}
+.mod-receiver-input .user-receiver-info,.mod-friends{-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box}

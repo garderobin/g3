@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+<!-- configuration of mysql server -->
+<config>
+	<driver>
+		com.mysql.jdbc.Driver
+	</driver>
+	<connectionString>
+		jdbc:mysql://10.131.229.167:3306/taassistant
+	</connectionString>
+	<user>
+		root
+	</user>
+	<password>
+		123456
+	</password>
+</config>
+
+<!-- describe the items to be posted with url, post data items and check methods -->
+<items>
+	<url>http://localhost:8080/StudentManage/usr/createThought.action</url>
+	
+	<!-- 
+		* data block: means the following would be post
+		* http://pc201301211308:8080/login.jsp/?username=test1&password=pwd1
+	-->
+	<data>
+		<message>
+			test2
+		</message>
+		<itemId>
+			1
+		</itemId>
+	</data>
+	
+	<!-- 
+		* check methods with correspending tables and properties.
+		* Then I will fetch the value in <table>'s <property> column
+	-->
+	<check>
+		<!-- 
+			* this means to search the database and check that
+			* SELECT * FROM Student WHERE name=test1 and password=pwd1
+			* and check whether the user has been add to the database
+		-->
+		<type>database</type>
+		<table>Thought</table>
+		<method>
+			<property>message</property>
+			<var>test2</var>
+		</method>
+	</check>
+	
+	<check>
+		<!-- 
+			* this means to emulates a submit of a form and
+			* check whether it jumps to usr/index.jsp
+		-->
+		<type>response</type>
+		<method>
+			<url>http://localhost:8080/StudentManage/usr/queryThought.action?itemId=1</url>
+		</method>
+	</check>
+</items>
+</root>

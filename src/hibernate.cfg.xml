@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE hibernate-configuration
+        PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+	<!--<property name="hbm2ddl.auto">update</property>-->
+	<!--
+	<property name="dialect">
+		org.hibernate.dialect.Oracle9Dialect
+	</property>
+	-->
+	<property name="dialect">
+		org.hibernate.dialect.MySQLDialect
+	</property>
+	<mapping class="com.score.bean.SystemState"></mapping>
+	<mapping class="com.score.bean.SysUser"></mapping>
+	<mapping class="com.score.bean.SysUserOut"></mapping>
+	<mapping class="com.score.bean.CollectionItem"></mapping>
+	<mapping class="com.score.bean.CollectionItemInfo"></mapping>
+	<mapping class="com.score.bean.CollectionItemInfoImage"></mapping>
+	<mapping class="com.score.bean.CollectionItemInfoCheck"></mapping>
+	<mapping class="com.score.bean.CollectionItemScore"></mapping>
+	<mapping class="com.score.bean.PublicHearingsItem"></mapping>
+	<mapping class="com.score.bean.PublicHearingsItemInfo"></mapping>
+	<mapping class="com.score.bean.PublicHearingsItemInfoText"></mapping>
+	<mapping class="com.score.bean.PublicHearingsItemScore"></mapping>
+	<mapping class="com.score.bean.TotalScore"></mapping>
+	<mapping class="com.score.bean.Message"></mapping>
+	<mapping class="com.score.bean.Thought"></mapping>
+	<!-- <mapping class="com.score.bean.Message2"></mapping> -->
+</session-factory>
+</hibernate-configuration>

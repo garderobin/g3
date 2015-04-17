@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="userActionMapping" extends="struts-default" namespace="/usr">
+		<global-results>
+			<result name="error">../error.jsp</result>
+			<result name="input">../error.jsp</result>
+		</global-results>
+		<!-- Goto Index Page -->
+		<action name="gotoIndexPage" class="SystemStateAction" method="querySystemState">
+			<result name="success">/usr/index.jsp</result>
+		</action>
+		<action name="queryPublish" class="QueryThoughtByPublishAction" method="queryByPublish">
+			<result name="success">/usr/index.jsp</result>
+		</action>
+		<!-- password -->
+		<action name="gotoChangePasswordPage" class="ChangeCurrentUserPasswordAction" method="gotoChangePasswordPage">
+			<result name="success">/usr/changePassword.jsp</result>
+		</action>
+		<action name="changeCurrentUserPassword" class="ChangeCurrentUserPasswordAction">
+			<result name="success">/usr/success.jsp</result>
+			<result name="input">/usr/changePassword.jsp</result>
+		</action>
+		<!-- CollectionItem -->
+		<action name="queryCollectionItemForFilling" class="QueryCollectionItemAction" method="queryItemWithPersonalInfoAll">
+			<result name="success">/usr/item-fill.jsp</result>
+		</action>
+		<action name="queryCollectionItemForCheckByCurrentUser" class="QueryCollectionItemAction" method="queryItemByCurrentUser">
+			<result name="success">/usr/item-check.jsp</result>
+		</action>
+		<action name="queryUserOutWithItemInfoForCheckOneByItemId" class="QueryUserOutWithItemInfoAction" method="queryUserOutWithItemInfoByItemId">
+			<result name="success">/usr/item-check-one.jsp</result>
+		</action>
+		<!-- PublicHearingsItem -->
+		<action name="queryPublicHearingsItemForFill" class="QueryPublicHearingsItemAction" method="queryItemAll">
+			<result name="success">/usr/public-hearings-fill.jsp</result>
+		</action>
+		<action name="queryUserOutWithPublicHearingsItemInfoForFillingByItemId" class="QueryUserOutWithPublicHearingsItemInfoAndTextAction" method="queryItemInfoAndTextByItemId">
+			<result name="success">/usr/public-hearings-fill-one.jsp</result>
+		</action>
+		<!-- Publicity -->
+		<action name="queryItemWhichShallBePublicized" class="QueryItemWhichShallBePublicizedAction">
+			<result name="success">/usr/item-publicity.jsp</result>
+		</action>
+		<action name="queryItemWhichShallBePublicizedText" class="QueryItemWhichShallBePublicizedAction" method="executeText">
+			<result name="success">/usr/public-hearings-text.jsp</result>
+		</action>
+		<action name="queryPublicHearingsTextByItemId" class="QueryPublicHearingsTextAction" method="QueryPublicHearingsTextByItemId">
+			<result name="success">/usr/public-hearings-text-one.jsp</result>
+		</action>
+		<!-- CollectionItemInfoImage -->
+		<action name="queryCollectionItemInfoOneImage" class="QueryCollectionItemInfoImageOneAction">
+			<result name="success" type="stream">
+				<param name="contentType">type</param>
+				<param name="inputName">image</param>
+			</result>
+		</action>
+		<!-- Get Git -->
+		<action name="versionsProvider" class="QueryGitAction" method="queryVersions">
+			<result name="success">/usr/git-versions.jsp</result>
+		</action>
+		<action name="directoryProvider" class="QueryGitAction" method="queryDirectory">
+			<result name="success">/usr/git-directory.jsp</result>
+		</action>
+		<action name="fileProvider" class="QueryGitAction" method="queryFile">
+			<result name="success">/usr/git-file.jsp</result>
+		</action>
+		<!-- Message -->
+		<!-- <action name="queryMessageByInfoProvider" class="QueryMessageAction" method="queryByInfoProvider">
+			<result name="success">/usr/message-outbox.jsp</result>
+		</action>
+		 -->
+		<!-- Thought -->
+		<action name="queryThought" class="QueryThoughtAction" method="queryByInfoProviderAndItemId">
+			<result name="success">/usr/thought-query.jsp</result>
+		</action>
+		<action name="createThought" class="CreateThoughtAction">
+			<result name="success" type="redirect">/usr/queryThought.action?itemId=${itemId}</result> 
+		</action>
+		<action name="controlThought" class="ControlThoughtAction">
+			<result name="success" type="redirect">/usr/success.jsp</result>
+		</action>
+		<action name="queryThoughtOfCertainUser" class="QueryThoughtAction" method="queryByInfoProviderAndItemId">
+			<result name="success">/usr/thought-query-of-certain-user.jsp</result>
+		</action>
+	</package>
+	<package name="userAjaxMapping" extends="json-default" namespace="/usr">
+		<global-results>
+			<result name="error" type="redirect">../error.jsp</result>
+			<result name="input" type="redirect">../error.jsp</result>
+		</global-results>
+		<action name="queryAllUserOut" class="QueryUserOutAction" method="queryAllUserOut">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					users\[\d+\]\.id, 
+					users\[\d+\]\.name, 
+					users\[\d+\]\.username,
+					users\[\d+\]\.ifTest,
+					user\.id, 
+					user\.name,
+					user\.username,
+					user\.ifTest
+				</param>
+			</result>
+		</action>
+		<action name="queryAllUser" class="QueryUserOutAction" method="queryAllUser">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					users\[\d+\]\.id, 
+					users\[\d+\]\.name, 
+					users\[\d+\]\.username,
+					users\[\d+\]\.ifTest,
+					user\.id, 
+					user\.name,
+					user\.username,
+					user\.ifTest
+				</param>
+			</result>
+		</action>
+		<action name="queryAllCollectionItem" class="QueryCollectionItemAction" method="queryItemAll">
+			<result name="success" type="json">
+				<param name="excludeProperties">
+					collectionItemList\[\d+\]\.checkOperator, 
+					collectionItemList\[\d+\]\.collectedItemInfo,
+					collectionItemList\[\d+\]\.collectedItemInfoCheck
+				</param>
+			</result>
+		</action>
+		<action name="fillCollectionItemInfo" class="FillCollectionItemInfoAction">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="fillCollectionItemInfoImage" class="FillCollectionItemInfoImageAction">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">image/png,image/jpg,image/jpeg,image/gif</param>
+				<param name="maximumSize">204800</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result name="success" type="json"></result>
+		</action>
+		<action name="fillCollectionItemInfoCheck" class="FillCollectionItemInfoCheckAction">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="fillPublicHearingsItemInfo" class="FillPublicHearingsItemInfoAction" method="fillInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="fillPublicHearingsItemInfoText" class="FillPublicHearingsItemInfoAction" method="fillText">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="deleteCollectionItemInfoImage" class="DeleteCollectionItemInfoImageAction">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- CollectionItemInfoImage -->
+		<action name="queryCollectionItemInfoImage" class="QueryCollectionItemInfoImageAction">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					itemInfoImage\[\d+\]\.id
+				</param>
+			</result>
+		</action>
+		<action name="queryScoreByItemId" class="QueryScoreByItemIdAction">
+			<result name="success" type="json">
+				<param name="excludeProperties">
+					collectionItem\.checkOperator, 
+					collectionItem\.collectedItemInfo,
+					collectionItem\.collectedItemInfoCheck,
+					collectionItemScore\.infoTarget,
+					collectionItemScore\.collectionItem,
+					collectionItemScores\[\d+\]\.infoTarget,
+					collectionItemScores\[\d+\]\.collectionItem,
+					publicHearingsItem\.publicHearingsItemInfo,
+					publicHearingsItemScore\.infoTarget,
+					publicHearingsItemScore\.publicHearingsItem,
+					totalScore\.infoTarget
+				</param>
+			</result>
+		</action>
+		<action name="queryMessageByInfoTarget" class="QueryMessageAction" method="queryByInfoTarget">			
+			<result name="success" type="json">
+				 <param name="includeProperties">
+				 	messageList\[\d+\]\.id, 
+					messageList\[\d+\]\.title, 
+					messageList\[\d+\]\.message,
+					messageList\[\d+\]\.infoProvider,
+					messageList\[\d+\]\.infoProvider\.name
+				</param> 
+			</result>
+		</action>
+		<action name="queryMessageByInfoProvider" class="QueryMessageAction" method="queryByInfoProvider">			
+			<result name="success" type="json">
+				 <param name="includeProperties">
+				 	messageList\[\d+\]\.id, 
+					messageList\[\d+\]\.title, 
+					messageList\[\d+\]\.message,
+					messageList\[\d+\]\.infoTarget,
+					messageList\[\d+\]\.infoTarget\.name 
+				</param> 
+			</result>
+		</action>
+		<action name="createMessage" class="CreateMessageAction">
+			<result name="success" type="json">
+				 <param name="includeProperties">
+					messageTitle, 
+					messageText,
+					infoTargetUsername
+				</param> 
+			</result>
+		</action>
+		<action name="sendMail" class="SendEmailAction">
+			<result name="success" type="json">
+				 <param name="includeProperties">
+					messageTitle, 
+					messageText,
+					infoTargetUsername,
+					hour
+				</param> 
+			</result>
+		</action>
+		
+	</package>
+</struts>

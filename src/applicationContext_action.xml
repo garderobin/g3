@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 此文件放置所有的Action类配置 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<!-- 登陆 -->
+	<bean id="loginAction" class="com.score.action.LoginAction" scope="prototype">
+	</bean> 
+	<bean id="ChangeCurrentUserPasswordAction" class="com.score.action.ChangeCurrentUserPasswordAction" scope="prototype">
+		<property name="sysUserService" ref="SysUserService" />
+		<property name="systemStateService" ref="SystemStateService" />
+	</bean>
+	<bean id="AppToResetPasswordAction" class="com.score.action.AppToResetPasswordAction" scope="prototype">
+		<property name="sysUserService" ref="SysUserService" />
+		<property name="mailSender" ref="MailSender" />
+	</bean>
+	<bean id="ResetPasswordAction" class="com.score.action.ResetPasswordAction" scope="prototype">
+		<property name="sysUserService" ref="SysUserService" />
+	</bean>
+	<!-- SystemState -->
+	<bean id="SystemStateAction" class="com.score.action.SystemStateAction" scope="prototype">
+		<property name="systemStateService" ref="SystemStateService" />
+	</bean>
+	<!-- QueryInformation -->
+	<bean id="QueryUserOutAction" class="com.score.action.QueryUserOutAction" scope="prototype">
+		<property name="sysUserService" ref="SysUserService" />
+	</bean>
+	<bean id="QueryCollectionItemAction" class="com.score.action.QueryCollectionItemAction" scope="prototype">
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+		<property name="collectionItemInfoDao" ref="CollectionItemInfoDao" />
+		<property name="systemStateService" ref="SystemStateService" />
+		<property name="sysUserService" ref="SysUserService" />
+	</bean>
+	<bean id="QueryCollectionItemInfoImageAction" class="com.score.action.QueryCollectionItemInfoImageAction" scope="prototype">
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+		<property name="collectionItemInfoDao" ref="CollectionItemInfoDao" />
+		<property name="systemStateService" ref="SystemStateService" />
+		<property name="sysUserService" ref="SysUserService" />
+	</bean>
+	<bean id="QueryCollectionItemInfoImageOneAction" class="com.score.action.QueryCollectionItemInfoImageOneAction" scope="prototype">
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+		<property name="collectionItemInfoImageDao" ref="CollectionItemInfoImageDao" />
+		<property name="systemStateService" ref="SystemStateService" />
+		<property name="sysUserService" ref="SysUserService" />
+	</bean>
+	<bean id="QueryPublicHearingsItemAction" class="com.score.action.QueryPublicHearingsItemAction" scope="prototype">
+		<property name="publicHearingsItemDao" ref="PublicHearingsItemDao" />
+		<property name="systemStateService" ref="SystemStateService" />
+	</bean>
+	<bean id="QueryCollectionItemOneAction" class="com.score.action.QueryCollectionItemOneAction" scope="prototype">
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+	</bean>
+	<bean id="QueryPublicHearingsItemOneAction" class="com.score.action.QueryPublicHearingsItemOneAction" scope="prototype">
+		<property name="publicHearingsItemDao" ref="PublicHearingsItemDao" />
+	</bean>
+	<bean id="QueryUserOutWithItemInfoAction" class="com.score.action.QueryUserOutWithItemInfoAction" scope="prototype">
+		<property name="systemStateService" ref="SystemStateService" />
+		<property name="sysUserService" ref="SysUserService" />
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+		<property name="collectionItemInfoDao" ref="CollectionItemInfoDao" />
+		<property name="collectionItemInfoCheckDao" ref="CollectionItemInfoCheckDao" />
+	</bean>
+	<bean id="QueryUserOutWithPublicHearingsItemInfoAndTextAction" class="com.score.action.QueryUserOutWithPublicHearingsItemInfoAndTextAction" scope="prototype">
+		<property name="systemStateService" ref="SystemStateService" />
+		<property name="sysUserService" ref="SysUserService" />
+		<property name="publicHearingsItemDao" ref="PublicHearingsItemDao" />
+		<property name="publicHearingsItemInfoDao" ref="PublicHearingsItemInfoDao" />
+		<property name="publicHearingsItemInfoTextDao" ref="PublicHearingsItemInfoTextDao" />
+	</bean>
+	<bean id="QueryScoreByItemIdAction" class="com.score.action.QueryScoreByItemIdAction" scope="prototype">
+		<property name="systemStateService" ref="SystemStateService" />
+		<property name="sysUserService" ref="SysUserService" />
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+		<property name="publicHearingsItemDao" ref="PublicHearingsItemDao" />
+		<property name="collectionItemScoreDao" ref="CollectionItemScoreDao" />
+		<property name="publicHearingsItemScoreDao" ref="PublicHearingsItemScoreDao" />
+		<property name="totalScoreService" ref="TotalScoreService" />
+	</bean>
+	<!-- CollectionItemSetting -->
+	<bean id="CreateCollectionItemAction" class="com.score.action.CreateCollectionItemAction" scope="prototype">
+		<property name="systemStateService" ref="SystemStateService" />
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+ 	</bean>
+ 	<bean id="DeleteCollectionItemAction" class="com.score.action.DeleteCollectionItemAction" scope="prototype">
+ 		<property name="systemStateService" ref="SystemStateService" />
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+ 	</bean>
+ 	<bean id="CreateCollectionItemCheckAction" class="com.score.action.CreateCollectionItemCheckAction" scope="prototype">
+ 		<property name="systemStateService" ref="SystemStateService" />
+ 		<property name="sysUserService" ref="SysUserService" />
+ 		<property name="collectionItemDao" ref="CollectionItemDao" />
+ 	</bean>
+ 	<bean id="CreateCollectionItemPublicitySetAction" class="com.score.action.CreateCollectionItemPublicitySetAction" scope="prototype">
+ 		<property name="systemStateService" ref="SystemStateService" />
+ 		<property name="collectionItemDao" ref="CollectionItemDao" />
+ 	</bean>
+ 	<!-- PublicHearingsItemSetting -->
+ 	<bean id="CreatePublicHearingsItemAction" class="com.score.action.CreatePublicHearingsItemAction" scope="prototype">
+		<property name="systemStateService" ref="SystemStateService" />
+		<property name="publicHearingsItemDao" ref="PublicHearingsItemDao" />
+ 	</bean>
+ 	<bean id="DeletePublicHearingsItemAction" class="com.score.action.DeletePublicHearingsItemAction" scope="prototype">
+ 		<property name="systemStateService" ref="SystemStateService" />
+		<property name="publicHearingsItemDao" ref="PublicHearingsItemDao" />
+ 	</bean>
+ 	<!-- CollectionInformation -->
+ 	<bean id="FillCollectionItemInfoAction" class="com.score.action.FillCollectionItemInfoAction" scope="prototype">
+ 		<property name="systemStateService" ref="SystemStateService" />
+ 		<property name="collectionItemDao" ref="CollectionItemDao" />
+ 		<property name="collectionItemInfoService" ref="CollectionItemInfoService" />
+ 		<property name="sysUserService" ref="SysUserService" /> 
+ 	</bean>
+ 	<bean id="FillCollectionItemInfoImageAction" class="com.score.action.FillCollectionItemInfoImageAction" scope="prototype">
+ 		<property name="systemStateService" ref="SystemStateService" />
+ 		<property name="sysUserService" ref="SysUserService" />
+ 		<property name="collectionItemDao" ref="CollectionItemDao" />
+ 		<property name="collectionItemInfoImageService" ref="CollectionItemInfoImageService" />
+ 	</bean>
+ 	<bean id="FillCollectionItemInfoCheckAction" class="com.score.action.FillCollectionItemInfoCheckAction" scope="prototype">
+ 		<property name="systemStateService" ref="SystemStateService" />
+ 		<property name="collectionItemDao" ref="CollectionItemDao" />
+ 		<property name="collectionItemInfoCheckService" ref="CollectionItemInfoCheckService" />
+ 		<property name="sysUserService" ref="SysUserService" /> 
+ 	</bean>
+ 	<bean id="FillPublicHearingsItemInfoAction" class="com.score.action.FillPublicHearingsItemInfoAction" scope="prototype">
+ 		<property name="systemStateService" ref="SystemStateService" />
+ 		<property name="publicHearingsItemDao" ref="PublicHearingsItemDao" />
+ 		<property name="publicHearingsItemInfoService" ref="PublicHearingsItemInfoService" />
+ 		<property name="publicHearingsItemInfoTextService" ref="PublicHearingsItemInfoTextService" />
+ 		<property name="sysUserService" ref="SysUserService" /> 
+ 	</bean>
+ 	<bean id="DeleteCollectionItemInfoImageAction" class="com.score.action.DeleteCollectionItemInfoImageAction" scope="prototype">
+ 		<property name="systemStateService" ref="SystemStateService" />
+ 		<property name="sysUserService" ref="SysUserService" />
+		<property name="collectionItemInfoImageDao" ref="CollectionItemInfoImageDao" />
+ 	</bean>
+ 	<!-- CalculateValue And Publicity -->
+ 	<bean id="CalculateScoreAction" class="com.score.action.CalculateScoreAction" scope="prototype">
+ 		<property name="calculateScoreService" ref="CalculateScoreService" />
+ 		<property name="collectionItemDao" ref="CollectionItemDao" />
+ 		<property name="publicHearingsItemDao" ref="PublicHearingsItemDao" />
+ 	</bean>
+ 	<bean id="QueryItemWhichShallBePublicizedAction" class="com.score.action.QueryItemWhichShallBePublicizedAction" scope="prototype">
+ 		<property name="collectionItemDao" ref="CollectionItemDao" />
+ 		<property name="publicHearingsItemDao" ref="PublicHearingsItemDao" />
+ 		<property name="systemStateService" ref="SystemStateService" />
+ 	</bean>
+ 	<bean id="QueryPublicHearingsTextAction" class="com.score.action.QueryPublicHearingsTextAction" scope="prototype">
+ 		<property name="publicHearingsItemInfoTextDao" ref="PublicHearingsItemInfoTextDao" />
+ 		<property name="systemStateService" ref="SystemStateService" />
+ 		<property name="sysUserService" ref="SysUserService" /> 
+ 	</bean>
+ 	<!-- Generate Report -->
+ 	<bean id="GenerateReportAction" class="com.score.action.GenerateReportAction" scope="prototype">
+ 		<property name="calculateScoreService" ref="CalculateScoreService" />
+ 		<property name="generateReportService" ref="GenerateReportService" />
+ 		<property name="systemStateService" ref="SystemStateService" />
+ 	</bean>
+ 	<!-- Message Setting -->
+ 	<bean id="CreateMessageAction" class="com.score.action.CreateMessageAction" scope="prototype">
+		<property name="sysUserService" ref="SysUserService" />
+		<property name="messageDao" ref="MessageDao" />
+ 	</bean>
+ 	<bean id="QueryMessageAction" class="com.score.action.QueryMessageAction" scope="prototype">
+		<property name="sysUserService" ref="SysUserService" />
+		<property name="messageDao" ref="MessageDao" />
+ 	</bean>
+ 	<bean id="SendEmailAction" class="com.score.action.SendEmailAction" scope="prototype">
+		<property name="sysUserService" ref="SysUserService" />
+		<property name="mailSender" ref="MailSender" />
+ 	</bean>
+ 	 <!-- Thought Setting -->
+ 	<bean id="CreateThoughtAction" class="com.score.action.CreateThoughtAction" scope="prototype">
+ 		<property name="sysUserService" ref="SysUserService"/>
+ 		<property name="collectionItemDao" ref="CollectionItemDao"/>
+ 		<property name="thoughtDao" ref="ThoughtDao"/>
+ 	</bean>
+ 	<bean id="QueryThoughtAction" class="com.score.action.QueryThoughtAction" scope="prototype">
+ 		<property name="systemStateService" ref="SystemStateService" />
+		<property name="thoughtDao" ref="ThoughtDao" />
+		<property name="sysUserService" ref="SysUserService" />
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+	</bean>
+	<bean id="ControlThoughtAction" class="com.score.action.ControlThoughtAction" scope="prototype">
+		<property name="thoughtDao" ref="ThoughtDao"/>
+		<property name="sysUserService" ref="SysUserService"/>
+	</bean>
+	<bean id="QueryThoughtByPublishAction" class="com.score.action.QueryThoughtByPublishAction" scope="prototype">
+ 		<property name="systemStateService" ref="SystemStateService" />
+		<property name="thoughtDao" ref="ThoughtDao" />
+	</bean>
+	<!-- Git -->
+	<bean id="QueryGitAction" class="com.score.action.QueryGitAction" scope="prototype">
+		<property name="sysUserService" ref="SysUserService" />
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+		<property name="rootpath" value="E:/" />
+	</bean>
+	
+	<!-- test -->
+	<bean id="CollectionItemInfoServiceDriver" class="com.score.test.CollectionItemInfoServiceDriver" scope="prototype">
+		<property name="collectionItemInfoDao" ref="CollectionItemInfoDao" />
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+		<property name="sysUserService" ref="SysUserService" />
+	</bean>
+	<bean id="FillCollectionItemInfoActionDriver" class="com.score.test.FillCollectionItemInfoActionDriver" scope="prototype">
+		<property name="collectionItemInfoService" ref="CollectionItemInfoService" />
+		<property name="collectionItemInfoDao" ref="CollectionItemInfoDao" />
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+		<property name="sysUserService" ref="SysUserService" />
+	</bean>
+</beans>

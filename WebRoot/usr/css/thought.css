@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+#shout_box {
+	margin:0 auto;
+	width:565px;
+}
+
+#shout_box textarea {
+	height:66px;
+	resize:none;
+	overflow:auto;
+	width:565px;
+	border-color:#d8d8d8;
+	border-style:solid;
+	border-width:2px;
+	font-family:Tahoma,Arial;
+	font-size:14px;
+}
+
+#talk_list {
+	list-style-type:none;
+	margin:0 auto;
+	width:565px;
+}
+
+/*基本文字微博样式*/
+em {
+	font-style:normal;
+}
+.text {
+	margin-left:15px;
+	margin-top:20px;
+	padding-bottom:20px;
+    border-bottom: thin dashed #999999;
+}
+
+.msgbox {
+	margin-left:60px;
+	font-family:Tahoma,Arial,sans-serif;
+	font-size:14px;
+	font-weight:400;
+	color:#111111;
+	line-height:23px;
+}
+.msgbox p a {
+	text-decoration:none;
+	color:#2270dd;
+}
+.msgbox p a:hover {
+	text-decoration:underline;
+}
+.appendinfo {
+	font-size: 12px;
+	font-weight: 400;
+	color: #999999;
+}
+.appendinfo a {
+	font-size: 12px;
+	font-weight: 400;
+	color: #999999;
+	text-decoration:none;
+	
+}
+.appendinfo a:hover {
+	text-decoration:underline;
+	cursor:pointer;
+}
+/*微博操作区样式*/
+.appendinfo ul {
+	float: right;
+	list-style-type:none;
+}
+.appendinfo ul li {
+	display:inline;
+	margin-right:10px;
+}
+.appendinfo ul li a {
+	color:#006a92;
+}
+.markField {
+	width:50px;
+}
+
+/*评论框样式*/
+.comment {
+	width:430px;                   /*缩进 居中*/
+	margin:5px auto 0;
+	padding:0 10px;
+	background-color:#eee;
+	display:none;
+}
+.comment_list {
+	list-style-type:none;
+
+}
+.comment_list li{
+	
+	border-bottom:thin solid #999999;
+	margin-top:10px;
+}
+
+.comment_list li a {
+	font-size:12px;
+	color: #2270dd;
+}
+.comment_list li {
+	white-space:wrap;
+}
+
+.send_comment {
+	height:30px;
+	padding:5px 0;
+	border-bottom:thin solid #999999;
+}
+.send_comment p {
+	float:right;
+	line-height:26px;
+	font-family:Tahoma,Arial,sans-serif;
+	color:#999;
+	font-size:12px;
+}
+.send_comment p span {
+	font-family:Georgia,Tahoma,Arial;
+	font-size:26px;
+	margin:0 5px;
+}
+.send_comment input {
+	float:right;
+	background-image:url(img/send_comment.png);
+	width:60px;
+	height:26px;
+	border-width:1px;
+	margin-left:15px;
+	background-position:-14px -2px;
+}

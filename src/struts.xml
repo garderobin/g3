@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.multipart.maxSize" value="1000000000" />
+	
+	<include file="struts-userActionMapping.xml"></include>
+	<include file="struts-userInActionMapping.xml"></include>
+
+	<package name="actionMapping" extends="struts-default">
+		<global-results>
+			<result name="error" type="redirect">../error.jsp</result>
+			<result name="input" type="redirect">../error.jsp</result>
+		</global-results>
+		<!-- 登陆部分 -->
+		<action name="login" class="loginAction">
+			<result name="ROLE_USER_IN" type="redirect">usr_in/gotoIndexPage.action</result>
+			<result name="ROLE_USER_OUT" type="redirect">usr/queryPublish.action</result>
+			<result name="error" type="redirect">login.jsp</result>
+		</action>
+		<!-- test -->
+		<action name="testDaos" class="CollectionItemInfoServiceDriver" method="test">
+			<result name="success">testTemplate.jsp</result>
+		</action>
+		<action name="testService" class="FillCollectionItemInfoActionDriver" method="test">
+			<result name="success">testTemplate.jsp</result>
+		</action>
+	</package>
+	<package name="pwdActionMapping" extends="struts-default" namespace="/pwd">
+		<global-results>
+			<result name="error">../error.jsp</result>
+			<result name="input">../error.jsp</result>
+		</global-results>
+		<action name="appToResetPassword" class="AppToResetPasswordAction">
+			<result name="success" type="redirect">appToResetPasswordSuccess.jsp</result>
+		</action>
+		<action name="gotoResetPasswordPage" class="ResetPasswordAction" method="gotoResetPasswordPage">
+			<result name="success">resetPassword.jsp</result>
+		</action>
+		<action name="resetPassword" class="ResetPasswordAction">
+			<result name="success" type="redirect">resetSuccess.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,162 @@
+@charset "utf-8";
+/* CSS Document */
+
+p {
+	margin:0px;
+}
+
+body {
+	background-color:#FFF;
+}
+
+#wrapper {
+	width: 1024px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:50px;
+	padding-bottom:50px;
+}
+
+#header {
+	width:1024px;
+	height:360px;
+	background-image:url(../images/login-title.png);
+}
+
+#login-div, #classChoose-div{
+	background-image:url(../images/login-background.png);
+	float:right;
+	padding-left:25px;
+	padding-right:25px;
+	padding-top:20px;
+	width:230px;
+	height:300px;
+	margin-top:20px;
+	margin-right:20px;
+	position:relative;
+}
+
+#classChoose-div {
+	top:-400px;
+}
+
+#classChoose-div > div {
+	height:30px;
+	margin-bottom:5px;
+}
+
+#login-div > div[name="classDiv"] {
+	height:30px;
+	width:225px;
+	margin-bottom:10px;
+}
+
+.class {
+	height:30px;
+	width:225px;
+	text-align:center;
+	line-height:30px;
+}
+
+.class a{
+	line-height:30px;
+	
+}
+
+.register-button {
+	background-image:url(../images/login-element.png);
+	background-position:0px -100px;
+	background-repeat:no-repeat;
+	display:block;
+	height:62px;
+	width:225px;
+	text-indent:-9999px;
+	overflow:hidden;
+	margin-bottom:10px;
+}
+
+.register-button:hover {
+	background-position: 0px -170px;
+}
+
+.register-button:active {
+	background-position: 0px -240px;
+}
+
+#login-form {
+	vertical-align:middle;
+}
+
+#login-form label {
+	line-height:25px;
+	font-size:14px;
+}
+
+#login-form input[type="text"], #login-form input[type="password"] {
+	background-image:url(../images/login-element.png);
+	background-repeat:no-repeat;
+	padding:0px;
+	border-width:0px;
+	width: 225px;
+	height:35px;
+	font-size:16px;
+	line-height:35px;
+	margin-top:2px;
+	margin-bottom:2px;
+}
+
+#login-form input[type="text"]:focus, #login-form input[type="password"]:focus {
+	background-image:url(../images/login-element.png);
+	background-position:0px -40px;
+	background-repeat:no-repeat;
+	outline:none;
+}
+
+#login-form a {
+	vertical-align:bottom;
+	line-height:40px;
+}
+
+#login-div span, #login-div a, #classChoose-div span, #classChoose-div a {
+	font-size: 12px;
+}
+
+#login-form input[type="submit"] {
+	background-image:url(../images/login-element.png);
+	background-position:-250px 0px;
+	width:82px;
+	height:33px;
+	margin-top:10px;
+	margin-bottom:5px;
+	border:none;
+	display:block;
+	float:left;
+	text-indent:-999px;
+}
+
+#login-form input[type="submit"]:hover {
+	background-position:-250px -40px;
+	cursor: pointer;
+}
+
+#login-form input[type="submit"]:active {
+	background-position:-250px -80px;
+}
+
+#login-form div[name="login-option"] {
+	height:33px;
+	margin-top:10px;
+	margin-bottom:5px;
+	float:left;
+}
+
+#login-form input[name="encryption"] {
+	display:block;
+	float:left;
+	margin-top:11px;
+}
+#login-form label[name="encryption"] {
+	display:inline;
+	vertical-align:bottom;
+	line-height:40px;
+}

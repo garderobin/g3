@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color:#CFF;
+}
+
+#wrapper {
+	width:1000px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:20px;
+}
+
+#contents {
+	width:960px;
+	margin-left:auto;
+	margin-right:auto;
+	height:300px;
+	background-color:#FFF;
+	padding:20px;
+}
+
+#contents > div[name="state"] {
+	width:400px;
+	text-align:center;
+	line-height:40px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#contents > div[name="state"] > h1:before {
+	content:"当前系统运行状态：";
+}
+
+#contents > div[name="submit"], #contents > div[name="loadingDiv"]{
+	width:220px;
+	height:40px;
+	line-height:40px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:30px;
+	text-align:center;
+}
+
+#contents > div[name="submit"] a[name="submit"] {
+	display:block;
+	width:200px;
+	height:25px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#09F;
+	line-height:25px;
+	text-decoration:none;
+	text-align:center;
+	color:#FFF;
+}
+
+#contents > div[name="submit"] span[name="unsubmitable"] {
+	display:block;
+	width:200px;
+	height:25px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#FFF;
+	line-height:25px;
+	text-decoration:none;
+	color:#000;
+}
+
+#contents > div[name="loadingDiv"] > div[name="word"] 
+{
+	text-align:center;
+	height:40px;
+	line-height:40px;
+}
+
+#contents > div[name="loadingDiv"] > div[name="word"] span
+{
+	height:40px;
+	font-family: "华文行楷", "华文隶书", "隶书", "黑体", "宋体", "微软雅黑";
+	font-size:24px;
+	text-align:center;
+}
+
+#contents > div[name="loadingDiv"] > div[name="loadingBar"]
+{
+	width:220px;
+	height:19px;
+	background-image: url(../images/ajax-loading.gif);
+	background-position:0 0;
+}
+

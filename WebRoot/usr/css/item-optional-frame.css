@@ -1,0 +1,220 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color:#FFF;
+}
+
+#wrapper {
+	width:1000px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:20px;
+}
+
+#itemListDiv {
+	background-color:#34aaf7;
+	float:left;
+	width:350px;
+	height:550px;
+	padding:0px;
+}
+
+#itemListDiv div[name="list"] {
+	float:right;
+	padding:10px;
+	padding-right:0px;
+	margin-top:10px;
+	height:510px;
+	overflow:hidden;
+	width:230px;
+	background-color:#ffce65;
+}
+
+#itemListDiv div[name="indexDiv"] {
+	height:30px;
+	margin-bottom:5px;
+	padding-left:15px;
+	width:100%;
+	background-color:#fcda90;
+}
+
+#itemListDiv div[name="indexDiv"]:hover {
+	background-color:#fcda90;
+	cursor:pointer;
+}
+
+#itemListDiv div[name="indexDiv"].current {
+	background-color:#FFF;
+	cursor:pointer;
+}
+
+#itemListDiv div[name="indexDiv"] span {
+	line-height:30px;
+	font-weight:600;
+}
+
+#itemListDiv div[name="limitDiv"] {
+	height:445px;
+	width:100%;
+	overflow:hidden;
+	position:relative;
+}
+
+#itemListDiv div[name="control"] {
+	width:100%;
+	margin-top:2px;
+	margin-bottom:0px;
+	height:28px;
+}
+
+#itemListDiv div[name="control"] a {
+	margin-right:5px;
+	float:left;
+	background-image:url(../images/item-setting.png);
+}
+
+#itemListDiv div[name="control"] a[name="up"] {
+	width:30px;
+	height:30px;
+	text-indent:999px;
+	background-position:-38px -4px;
+}
+
+#itemListDiv div[name="control"] a[name="down"] {
+	width:30px;
+	height:30px;
+	text-indent:999px;
+	background-position:-4px -4px;
+}
+
+#itemListDiv div[name="control"] a[name="up"]:hover {
+	background-position:-38px -37px;
+}
+
+#itemListDiv div[name="control"] a[name="down"]:hover {
+	background-position: -4px -37px;
+}
+
+#itemListDiv div[name="control"] a[name="up"]:active {
+	background-position:-38px -70px;
+}
+
+#itemListDiv div[name="control"] a[name="down"]:active {
+	background-position:-4px -70px;
+}
+
+#itemListDiv div[name="control"] a[name="new"], #itemListDiv div[name="control"] a[name="del"] {
+	width:70px;
+	height:30px;
+	background-position: 4px -104px;
+	line-height:30px;
+	text-align:center;
+	text-decoration:none;
+}
+
+#itemList {
+	padding:0px;
+	list-style-type:none;
+	margin:0px;
+	position:relative;
+}
+
+#itemList li {
+	background-color:#fcda90;
+	width:220px;
+	padding-left:10px;
+	height:30px;
+	margin-bottom:5px;
+	line-height:30px;
+	overflow:hidden;
+}
+
+#itemList li:hover {
+	background-color:#fcfc90;
+	cursor:pointer;
+	font-weight:500;
+}
+
+#itemList li.current {
+	background-color:#FFF;
+	cursor:pointer;
+}
+
+#contents {
+	width:640px;
+	height:548px;
+	float:left;
+	background-color:#FFF;
+	border-width:1px;
+	border-style:solid;
+	border-color:#000;
+	border-left-width:0px;
+}
+
+#markDiv {
+	height:550px;
+	width:640px;
+}
+
+#markDiv > div[name="loadingDiv"]
+{
+	width:220px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:130px;
+}
+
+#markDiv > div[name="loadingDiv"] > div[name="word"] 
+{
+	text-align:center;
+	height:40px;
+	line-height:40px;
+}
+
+#markDiv > div[name="loadingDiv"] > div[name="word"] span
+{
+	height:40px;
+	font-family: "华文行楷", "华文隶书", "隶书", "黑体", "宋体", "微软雅黑";
+	font-size:24px;
+	text-align:center;
+}
+
+#markDiv > div[name="loadingDiv"] > div[name="loadingBar"]
+{
+	width:220px;
+	height:19px;
+	background-image: url(../images/ajax-loading.gif);
+	background-position:0 0;
+}
+
+#itemDiv {
+	margin:15px;
+	width:610px;
+	height:520px;
+	outline:none;
+	border:none;
+	overflow:hidden;
+}
+
+#itemDiv.iframe {
+	overflow-y:scroll;
+}
+
+#itemForm > div {
+	margin:6px;
+}
+
+#itemForm input {
+	height:20px;
+}
+
+#codeDialog {
+	padding: 20px;
+	max-height: 400px;
+	overflow-y: scroll;
+}
+
+#codeDialog pre, #codeDialog div.syntax-container {
+	background-color: #FFF;
+}

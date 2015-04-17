@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="userInActionMapping" extends="struts-default" namespace="/usr_in">
+		<global-results>
+			<result name="error">../error.jsp</result>
+			<result name="input">../error.jsp</result>
+		</global-results>
+		<!-- Goto Index Page -->
+		<action name="gotoIndexPage" class="SystemStateAction" method="querySystemState">
+			<result name="success">/usr_in/index.jsp</result>
+		</action>
+		<!-- SystemStateSetting -->
+		<action name="querySystemState" class="SystemStateAction" method="querySystemState">
+			<result name="success">/usr_in/systemstate-setting.jsp</result>
+		</action>
+		<!-- CollectionItem -->
+		<action name="queryCollectionItemForEdit" class="QueryCollectionItemAction" method="queryItemAll">
+			<result name="success">/usr_in/item-setting.jsp</result>
+		</action>
+		<action name="queryCollectionItemForCheckSet" class="QueryCollectionItemAction" method="queryItemWhichNeedCheck">
+			<result name="success">/usr_in/item-check-setting.jsp</result>
+		</action>
+		<action name="queryCollectionItemForPublicitySet" class="QueryCollectionItemAction" method="queryItemAll">
+			<result name="success">/usr_in/item-publicity-setting.jsp</result>
+		</action>
+		<!-- PublicHearingsItem -->
+		<action name="queryPublicHearingsItemForEdit" class="QueryPublicHearingsItemAction" method="queryItemAll">
+			<result name="success">/usr_in/public-hearings-item-setting.jsp</result>
+		</action>
+		<!-- Generate Report -->
+		<action name="generateReport" class="GenerateReportAction">
+			<result name="success" type="stream"> 
+				<param name="contentDisposition">filename=report.xls</param> 
+				<param name="inputName">downloadFile</param> 
+				<param name="bufferSize">4096</param> 
+			</result> 
+		</action>
+	</package>
+	<package name="userInAjaxMapping" extends="json-default" namespace="/usr_in">
+		<global-results>
+			<result name="error" type="redirect">../error.jsp</result>
+			<result name="input" type="redirect">../error.jsp</result>
+		</global-results>
+		<action name="queryAllUser" class="QueryUserOutAction" method="queryAllUser">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					users\[\d+\]\.id, 
+					users\[\d+\]\.name, 
+					users\[\d+\]\.username,
+					users\[\d+\]\.ifTest,
+					user\.id, 
+					user\.name,
+					user\.username,
+					user\.ifTest
+				</param>
+			</result>
+		</action>
+		<!-- CollectionItem -->
+		<action name="createCollectionItem" class="CreateCollectionItemAction">
+			<result name="success" type="json">
+				<param name="excludeProperties">
+					collectionItem\.checkOperator, 
+					collectionItem\.collectedItemInfo,
+					collectionItem\.collectedItemInfoCheck
+				</param>
+			</result>
+		</action>
+		<action name="createCollectionItemCheck" class="CreateCollectionItemCheckAction">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="createCollectionItemPublicitySet" class="CreateCollectionItemPublicitySetAction">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="deleteCollectionItemById" class="DeleteCollectionItemAction">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="queryCollectionItemById" class="QueryCollectionItemOneAction" method="queryItemById">
+			<result name="success" type="json">
+				<param name="excludeProperties">
+					collectionItem\.checkOperator, 
+					collectionItem\.collectedItemInfo,
+					collectionItem\.collectedItemInfoCheck
+				</param>
+			</result>
+		</action>
+		<action name="queryCollectionItemWithCheckOperatorsById" class="QueryCollectionItemOneAction" method="queryItemWithCheckOperatorsById">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					collectionItem\.checkOperator,
+					collectionItem\.checkOperator\[\d+\]\.id,
+					collectionItem\.checkOperator\[\d+\]\.username,
+					collectionItem\.checkOperator\[\d+\]\.name,
+					collectionItem\.checkOperator\[\d+\]\.ifTest
+				</param>
+			</result>
+		</action>
+		<!-- PublicHearingsItem -->
+		<action name="createPublicHearingsItem" class="CreatePublicHearingsItemAction">
+			<result name="success" type="json">
+				<param name="excludeProperties">
+					publicHearingsItem\.publicHearingsItemInfo
+				</param>
+			</result>
+		</action>
+		<action name="queryPublicHearingsItemById" class="QueryPublicHearingsItemOneAction" method="queryItemById">
+			<result name="success" type="json">
+				<param name="excludeProperties">
+					publicHearingsItem\.publicHearingsItemInfo
+				</param>
+			</result>
+		</action>
+		<action name="deletePublicHearingsItemById" class="DeletePublicHearingsItemAction">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- CalculateValue -->
+		<action name="calculateScore" class="CalculateScoreAction" method="calculateAll">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="calculateCollectionItemScoreById" class="CalculateScoreAction" method="calculateCollectionItemByItemId">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="calculatePublicHearingsItemScoreById" class="CalculateScoreAction" method="calculatePublicHearingsItemByItemId">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- SystemStateSetting -->
+		<action name="querySystemStateAjax" class="SystemStateAction" method="querySystemState">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="changeSystemStateToNextStep" class="SystemStateAction" method="changeToNextStep">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>

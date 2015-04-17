@@ -1,0 +1,221 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv=Content-Type content="text/html; charset=utf-8" />
+	<title>欢迎使用学生管理系统</title>
+	<link href="css/common.css" rel="stylesheet" />
+	<link href="css/login.css" rel="stylesheet" />
+	<link href="plugins/jquery-ui/css/ui-lightness/jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css" />
+	<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+	<script src="plugins/jquery-ui/js/jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/sha1.js"></script>
+    <script type="text/javascript" src="plugins/jquery-cookie/jquery.cookie.js"></script>
+    <script type="text/javascript" src="plugins/jquery-form/jquery.form.js"></script>
+    <script type="text/javascript">
+		$(function(){
+			$className = "";
+			$urlTitle = "http://localhost:8090/StudentManage";
+			
+			$("#login-button").click(function()
+			{
+				if ($className == "")
+				{
+					alert("您还没有选择班级");
+					return false;
+				}
+				var $username = $("#login-form input[name='j_username']").attr("value");
+				if ($username == null || $username.length == 0)
+				{
+					alert("请输入用户名");
+					return;
+				}
+				var cookieParameter = {
+					expires: 30
+				};
+				$.cookie('last-username', $("#login-form input[name='j_username']").attr("value"), cookieParameter);
+				$.cookie('last-ifEncrypt', $("#login-form input[name='encryption']").attr("checked"), cookieParameter);
+				$.cookie('last-class', $className, cookieParameter);
+				$("#login-form").submit();
+			});
+			
+			$("#login-form input[name='encryption']").bind("click", encryptionButtonHandler);
+			
+			var $tempClassName = $.cookie('last-class'); // 存储 cookie
+			if ($tempClassName != null && $tempClassName.length > 0)
+			{
+				changeClass($tempClassName);
+			}
+			var $userName = $.cookie('last-username');
+			$("#login-form input[name='j_username']").attr("value", $userName);
+			var $ifEncrypt = $.cookie('last-ifEncrypt');
+
+			$("#login-form input[name='encryption']").attr("checked", $ifEncrypt);
+			
+			$("#saveErrorDialog").dialog({
+				autoOpen: false,
+				width: 300,
+				resizable: false,
+				buttons: {
+					好的: function() {
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+			getOs();
+		});
+		
+		function encryptionButtonhandler()
+		{
+			if ($(this).attr("checked"))
+			{
+				$urlTitle = "https://10.131.10.139:8443/StudentManage";
+			}
+			else
+			{
+				$urlTitle = "http://10.131.10.139:8090/StudentManage";
+			}
+			changeURL();
+		}
+
+		function changeClass(name)
+		{
+			$className = name;
+			changeURL();
+			$("#login-div div.class").addClass("hidden");
+			$("#login-div div.class[name='" + name + "']").removeClass("hidden");
+			$("#classChoose-div").animate({top:"-400px"}, 400);
+			if (name == 'localTest')
+			{
+				$("#login-form").attr("action", "http://127.0.0.1:8080/StudentManage/j_spring_security_check");
+				$("#login-div div.class[name='test']").removeClass("hidden");
+			}
+		}
+		
+		function changeURL()
+		{
+			$("#login-form").attr("action", $urlTitle + $className + "/j_spring_security_check");
+		}
+		
+		function switchToSelectDiv()
+		{
+			$("#classChoose-div").animate({top:"0px"}, 400);
+		}
+
+		function appToResetPassword()
+		{
+			if ($className == "")
+			{
+				alert("您还没有选择班级");
+				return false;
+			}
+			var $username = $("#login-form input[name='j_username']").attr("value");
+			if ($username == null || $username.length == 0)
+			{
+				alert("请输入用户名");
+				return false;
+			}
+			if ($className == "localTest")
+				window.location.href = "http://127.0.0.1:8080/StudentManage/pwd/appToResetPassword.action?username=" + $username;
+			else
+				window.location.href = $urlTitle + $className + "/pwd/appToResetPassword.action?username=" + $username;
+		}
+		
+		function showErrorDialog(msg)
+		{
+			$("#saveErrorDialog").html($errMsg);
+			$("#saveErrorDialog").dialog("open");
+		}
+		
+		function getOs()  
+		{  
+			var browser=navigator.appName;
+
+			var b_version=navigator.appVersion;
+
+			var version=b_version.split(";");
+
+			var trim_Version=version[1].replace(/[ ]/g,"");
+			
+			var $errMsg;
+			var $ifErr = false;
+
+			if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE9.0")
+			{
+			}
+			else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE8.0")
+			{
+				$ifErr = true;
+				$errMsg = "您使用的IE 8.0可以基本正常地使用本网站，但仍会有少量显示不正常，建议您使用IE9.0,Firefox,Chrome等浏览器浏览";
+			}
+			else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE7.0")
+			{
+				$ifErr = true;
+				$errMsg = "您使用的IE 7.0与本网站兼容性不好，建议您使用您使用IE9.0,Firefox,Chrome等浏览器浏览";
+			}
+			else if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE6.0")
+			{
+				$ifErr = true;
+				$errMsg = "您使用的IE 6.0与本网站兼容性不好，建议您使用您使用IE9.0,Firefox,Chrome等浏览器浏览";
+			}
+			
+			if ($ifErr)
+			{
+				alert($errMsg);
+			}
+		}
+		
+	</script>
+</head>
+
+<body>
+    <div id="wrapper">
+    	<div id="header">
+            <div id="login-div">
+            	<div name="classDiv" >
+                    <div name="Ics12" class="hidden class">
+                    	<a>ICS12</a>
+                    </div>
+                    <div name="localTest" class="hidden class">
+                    	<a>测试系统</a>
+                    </div>
+                    <div name="notChosen" class="class">
+                    	<a>您还未选择班级</a>
+                    </div>
+                </div>
+                <a title="更换" class="register-button" href="javascript:switchToSelectDiv();">更换班级</a>
+                <div name="login">
+                    <form id="login-form" action="javascript:alert('请选择班级');" method="post">
+                        <label>登录系统：</label>
+                        <input name="j_username" type="text" />
+                        <input name="j_password" type="password" />
+                        <input id="login-button" href="#" type="submit" />
+                        <div name="login-option">
+                            <input type="checkbox" name="encryption"/>
+                            <label name="encryption">加密</label>
+                            <a href="javascript:appToResetPassword();">忘记密码了？</a>
+                        </div>
+                    </form>
+                </div>
+                <span>
+                    
+                </span>
+            </div>
+            <div id="classChoose-div">
+                <div name="Test" class="class">
+                	<a href="javascript:changeClass('Ics12');">ICS12</a>
+                </div>
+                <div name="Test" class="class">
+                	<a href="javascript:changeClass('localTest');">测试系统</a>
+                </div>
+            </div>
+        </div>
+		</div>
+    </div>
+    <div id="saveErrorDialog" title="消息框" class="hidden">
+		<span><s:fielderror /></span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 此文件放置所有的DAO对象配置 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="SysUserDao" class="com.score.dao.SysUserDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="SystemStateDao" class="com.score.dao.SystemStateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="CollectionItemDao" class="com.score.dao.CollectionItemDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="CollectionItemInfoDao" class="com.score.dao.CollectionItemInfoDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="CollectionItemInfoCheckDao" class="com.score.dao.CollectionItemInfoCheckDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="CollectionItemInfoImageDao" class="com.score.dao.CollectionItemInfoImageDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="CollectionItemScoreDao" class="com.score.dao.CollectionItemScoreDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="PublicHearingsItemDao" class="com.score.dao.PublicHearingsItemDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="PublicHearingsItemInfoDao" class="com.score.dao.PublicHearingsItemInfoDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="PublicHearingsItemInfoTextDao" class="com.score.dao.PublicHearingsItemInfoTextDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="PublicHearingsItemScoreDao" class="com.score.dao.PublicHearingsItemScoreDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="TotalScoreDao" class="com.score.dao.TotalScoreDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="MessageDao" class="com.score.dao.MessageDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="ThoughtDao" class="com.score.dao.ThoughtDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+</beans>

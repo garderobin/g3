@@ -1,0 +1,155 @@
+@CHARSET "UTF-8";
+
+#contents{
+	margin-left:100px;
+	min-height:400px;!important
+}
+
+form{
+	margin-top:10px;
+}
+.mes-row{
+	height:55px;
+}
+
+.labelword{
+	width:80px;
+	height:40px;
+	margin-right:10px;
+	float:left;
+	font-size:14px;
+	text-align:right;
+	padding-top:5px;
+}
+
+.userLi{
+	text-align:center;
+}
+
+.con-input{
+	width:520px;
+	height:40px;
+	float:left;
+}
+
+input[type="text"]{
+	width:520px;
+}
+
+textarea{
+	width:522px;
+	height:200px;
+}
+
+#textDiv{
+    height:215px;
+}
+
+input[type="submit"]{
+	float:right;
+	margin-right:50px;
+}
+
+#infoTarget{
+	height:20px;
+	width:520px;
+}
+
+#titleText{
+	height:20px;
+	width:520px;
+}
+
+/* .tr{
+	height:32px;
+	margin-bottom:16px;
+} */
+
+#mod_talk_paper{
+	height:0px;
+}
+#mod_talk_paper div[name="control"] a {
+	display:block;
+	margin-right:5px;
+	margin-top:-6px;
+	float:right;
+	background-image:url(../images/item-setting.png);
+	color:transparent;
+}
+
+#mod_talk_paper div[name="control"] a[name="down"] {
+	width:30px;
+	height:30px;
+	text-indent:999px;
+	background-position:-4px -4px;
+}
+
+#mod_talk_paper div[name="control"] a[name="up"] {
+	width:30px;
+	height:30px;
+	text-indent:999px;
+	background-position:-38px -4px;
+}
+
+#mod_talk_paper div[name="control"] a[name="up"]:hover{
+	background-position:-38px -37px;
+}
+
+#mod_talk_paper div[name="control"] a[name="down"]:hover {
+	background-position:-4px -37px;
+}
+
+#mod_talk_paper div[name="control"] a[name="up"]:active {
+	background-position:-38px -70px;
+}
+
+#mod_talk_paper div[name="control"] a[name="down"]:active {
+	background-position:-4px -70px;
+}
+
+div[name="mylist"]{
+	height:547px;
+}
+
+#tixing{
+	width:250px;
+}
+
+#emailUl{
+	margin-left:90px;
+	margin-top:-20px;
+}
+
+#submitDiv{
+	width:100px;
+	float:right;
+}
+#modEditor{
+	height:172px;
+}
+
+#commentArea{
+	height:125px;
+}
+
+#modEditor .editor-console{
+	height:37px;
+}
+#modEditor .editor-textarea{
+	height:135px;
+}
+
+li[name="homePage"]{
+	margin-left:40px;
+}
+.mod-nav .nav-inner ul li.block-normal{
+	border-bottom: 1px solid #61A0D5;
+}
+
+#tixing .has-switch span.switch-primary {
+	background:url(../images/icon_buttons.gif) no-repeat 0 -33px;
+}
+
+#send{
+	margin-top:40px;
+}

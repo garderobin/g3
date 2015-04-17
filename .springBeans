@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[2.7.1.me201110252317]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[true]]></enableImports>
+	<configs>
+		<config>src/applicationContext_action.xml</config>
+		<config>src/applicationContext_dao.xml</config>
+		<config>src/applicationContext_service.xml</config>
+		<config>src/applicationContext_util.xml</config>
+	</configs>
+	<configSets>
+	</configSets>
+	<springVersion>1.2</springVersion>
+</beansProjectDescription>

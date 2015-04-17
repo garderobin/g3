@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- 此文件放置所有的Service类配置 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<bean id="userDetailService" class="com.score.service.UserDetailServiceImpl">
+		<property name="sysUserDao" ref="SysUserDao" />
+	</bean>
+	<bean id="SysUserService" class="com.score.service.SysUserService">
+		<property name="sysUserDao" ref="SysUserDao" />
+	</bean>
+	<bean id="SystemStateService" class="com.score.service.SystemStateService">
+		<property name="systemStateDao" ref="SystemStateDao" />
+		<property name="calculateScoreService" ref="CalculateScoreService" />
+	</bean>
+	<bean id="CollectionItemInfoService" class="com.score.service.CollectionItemInfoService">
+		<property name="collectionItemInfoDao" ref="CollectionItemInfoDao" />
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+	</bean>
+	<bean id="CollectionItemInfoCheckService" class="com.score.service.CollectionItemInfoCheckService">
+		<property name="collectionItemInfoCheckDao" ref="CollectionItemInfoCheckDao" />
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+	</bean>
+	<bean id="CollectionItemInfoImageService" class="com.score.service.CollectionItemInfoImageService">
+		<property name="collectionItemInfoImageDao" ref="CollectionItemInfoImageDao" />
+		<property name="collectionItemInfoService" ref="CollectionItemInfoService" />
+		<property name="collectionItemInfoDao" ref="CollectionItemInfoDao" />
+	</bean>
+	<bean id="CollectionItemScoreService" class="com.score.service.CollectionItemScoreService">
+		<property name="collectionItemScoreDao" ref="CollectionItemScoreDao" />
+		<property name="collectionItemDao" ref="CollectionItemDao" />
+	</bean>
+	<bean id="TotalScoreService" class="com.score.service.TotalScoreService">
+		<property name="totalScoreDao" ref="TotalScoreDao" />
+	</bean> 
+	<bean id="PublicHearingsItemInfoService" class="com.score.service.PublicHearingsItemInfoService">
+		<property name="publicHearingsItemInfoDao" ref="PublicHearingsItemInfoDao" />
+		<property name="publicHearingsItemDao" ref="PublicHearingsItemDao" />
+	</bean>
+	<bean id="PublicHearingsItemInfoTextService" class="com.score.service.PublicHearingsItemInfoTextService">
+		<property name="publicHearingsItemInfoTextDao" ref="PublicHearingsItemInfoTextDao" />
+		<property name="publicHearingsItemDao" ref="PublicHearingsItemDao" />
+	</bean>
+	<bean id="PublicHearingsItemScoreService" class="com.score.service.PublicHearingsItemScoreService">
+		<property name="publicHearingsItemScoreDao" ref="PublicHearingsItemScoreDao" />
+		<property name="publicHearingsItemDao" ref="PublicHearingsItemDao" />
+	</bean>
+	<bean id="CalculateScoreService" class="com.score.service.CalculateScoreService">
+ 		<property name="collectionItemDao" ref="CollectionItemDao" />
+		<property name="collectionItemInfoDao" ref="CollectionItemInfoDao" />
+		<property name="collectionItemInfoCheckDao" ref="CollectionItemInfoCheckDao" />
+		<property name="collectionItemScoreDao" ref="CollectionItemScoreDao" />
+		<property name="collectionItemScoreService" ref="CollectionItemScoreService" />
+		<property name="publicHearingsItemDao" ref="PublicHearingsItemDao" />
+		<property name="publicHearingsItemInfoDao" ref="PublicHearingsItemInfoDao" />
+		<property name="publicHearingsItemScoreDao" ref="PublicHearingsItemScoreDao" />
+		<property name="publicHearingsItemScoreService" ref="PublicHearingsItemScoreService" />
+		<property name="totalScoreService" ref="TotalScoreService" />
+		<property name="sysUserService" ref="SysUserService" />
+ 	</bean>
+ 	<bean id="GenerateReportService" class="com.score.service.GenerateReportService">
+ 		<property name="sysUserService" ref="SysUserService" />
+ 		<property name="collectionItemDao" ref="CollectionItemDao" />
+ 		<property name="publicHearingsItemDao" ref="PublicHearingsItemDao" />
+ 		<property name="collectionItemScoreDao" ref="CollectionItemScoreDao" />
+ 		<property name="publicHearingsItemScoreDao" ref="PublicHearingsItemScoreDao" />
+ 		<property name="totalScoreService" ref="TotalScoreService" />
+ 	</bean>
+ 	<bean id="MailSender" class="com.score.util.MailSender">
+ 		<property name="host" value="mail.fudan.edu.cn" />
+ 		<property name="mailaddress" value="10302010082@fudan.edu.cn" />
+ 		<property name="password" value="250527650926" />
+ 	</bean>
+</beans>

@@ -1,0 +1,43 @@
+
+#context{
+	width:1024px;
+}
+
+#thoughtsdiv{
+	width:650px;
+	-moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius:15px;
+	background-color:rgba(255,255,255,0.5);
+}
+
+#thoughtsdiv h1{
+	font-size:24px;
+	margin:5px;
+}
+
+.thoughts{
+	list-style-type:none;
+	margin-left:-25px;
+}
+
+.thoughts .text{
+	width:600px;
+	margin:5px;
+	border:thin dashed;
+	-moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius:15px;
+}
+
+.thoughts li p{
+	margin:5px;
+	overflow:hidden;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+
+.username{
+	font-weight:bold;
+	font-size:16px;
+}
